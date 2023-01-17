@@ -6,7 +6,7 @@
  */ 
 
 /* 
-RELEASE ALL BUTTONS BEFORE CONTINUE INTERACTING WITH THE KEYBOARD!
+RELEASE ALL BUTTONS THEN CONTINUE INTERACTING WITH THE KEYBOARD
 
 F_CPU/1024 = 1s
 
@@ -62,16 +62,16 @@ ISR(TIMER1_OVF_vect){
 	else {period = 1;}
 		
 	if (period == 4) {
-		TCNT1 = 65536 - round(signal_period / 2 - duty_cycle * signal_period / 2 / 100) *7372800/1024/1000; // = 2^16 - F_CPU/1024
+		TCNT1 = 65536 - round(signal_period / 2 - duty_cycle * signal_period / 2 / 100) *7372800/1024/1000;
 	}
 	if (period == 1) {
-		TCNT1 = 65536 -round(duty_cycle * signal_period / 2 / 100) *7372800/1024/1000; // = 2^16 - F_CPU/1024
+		TCNT1 = 65536 -round(duty_cycle * signal_period / 2 / 100) *7372800/1024/1000;
 	}
 	if (period == 2) {
-		TCNT1 = 65536 - round(signal_period / 2 - duty_cycle * signal_period / 2 / 100) *7372800/1024/1000; // = 2^16 - F_CPU/1024
+		TCNT1 = 65536 - round(signal_period / 2 - duty_cycle * signal_period / 2 / 100) *7372800/1024/1000;
 	}
 	if (period == 3) {
-		TCNT1 = 65536 - round(duty_cycle * signal_period / 2 / 100) *7372800/1024/1000; // = 2^16 - F_CPU/1024
+		TCNT1 = 65536 - round(duty_cycle * signal_period / 2 / 100) *7372800/1024/1000;
 	}
 	
 	pwm();
@@ -97,7 +97,7 @@ int get_input(){
 int main(void)
 {
 	preset();
-	int lps = 0; // last pressed status (release all buttons before continue interacting with the keyboard)
+	int lps = 0; // last pressed status (release all buttons then continue interacting with the keyboard)
 
     while(1){
 		keyboard = ~get_input();
